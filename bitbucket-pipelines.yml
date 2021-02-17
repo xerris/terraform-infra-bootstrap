@@ -1,0 +1,101 @@
+# Template Terraform to deploy to Cloud Infrastructure
+
+# This template allows you to deploy your infrastructure using Terraform to supported cloud providers.
+# The workflow allows running tests, security scans on feature branches (as well as master).
+# After merging code to master the infrastructure will be deployed to cloud according to the given terraform template.
+
+# Prerequisites: credentials according to used cloud provider.
+# For advanced cases, please, follow terraform docs https://www.terraform.io/docs/index.html.
+
+
+image: hashicorp/terraform
+
+pipelines:
+  branches:
+    master:
+        - step:
+            name: Test
+            script:
+              - export ENV=prod
+              - sh terraform_exec.sh 0
+        - step:
+            name: Security Scan
+            script:
+              # Run a security scan for sensitive data.
+              # See more security tools at https://bitbucket.org/product/features/pipelines/integrations?&category=security
+              - pipe: atlassian/git-secrets-scan:0.4.3
+
+        - step:
+            name: Deploy to Production
+            deployment: Production
+            trigger: manual
+            script:
+              - export ENV=prod
+              - sh terraform_exec.sh 1
+    stage:
+      - step:
+          name: Security Scan
+          script:
+            # Run a security scan for sensitive data.
+            # See more security tools at https://bitbucket.org/product/features/pipelines/integrations?&category=security
+            - pipe: atlassian/git-secrets-scan:0.4.3
+      - step:
+          name: Test
+          services:
+            - docker
+          script:
+            - export ENV=stage
+            - sh terraform_exec.sh 0
+      - step:
+          name: Deploy to Stage
+          services:
+            - docker
+          script:
+            - export ENV=stage
+            - sh terraform_exec.sh 1
+    dev:
+      - step:
+          name: Security Scan
+          script:
+            # Run a security scan for sensitive data.
+            # See more security tools at https://bitbucket.org/product/features/pipelines/integrations?&category=security
+            - pipe: atlassian/git-secrets-scan:0.4.3
+      - step:
+          name: Test
+          services:
+            - docker
+          script:
+            - export ENV=dev
+            - sh terraform_exec.sh 0
+      - step:
+          name: Deploy to dev
+          services:
+            - docker
+          script:
+            - export ENV=dev
+            - sh terraform_exec.sh 1
+    XDP-*:
+      - step:
+          name: Security Scan
+          script:
+            # Run a security scan for sensitive data.
+            # See more security tools at https://bitbucket.org/product/features/pipelines/integrations?&category=security
+            - pipe: atlassian/git-secrets-scan:0.4.3
+      - step:
+          name: Test
+          services:
+            - docker
+          script:
+            - export ENV=poc
+            - ls -ltr
+            - sh terraform_exec.sh 0
+      - step:
+          name: Deploy to Isengard
+          services:
+            - docker
+          script:
+            - export ENV=poc
+            - sh terraform_exec.sh 1
+
+
+
