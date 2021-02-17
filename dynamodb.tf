@@ -1,5 +1,5 @@
 module "dynamodb_table" {
-  source = "git@bitbucket.org:xerris/platform-modules.git//dynamodb"
+  source = "git@github.com:xerris/aws-modules.git//dynamodb"
 
   name      = var.dynamodb_table_name
   hash_key  = "id"
