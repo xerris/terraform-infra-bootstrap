@@ -8,11 +8,11 @@ echo "###############################"
 APPLY=$1
 
 terraform init \
--backend-config="bucket=terraform-state-aldo-${ENV}" \
--backend-config="key=${ENV}/platform-infra-aldo.tfstate" \
+-backend-config="bucket=terraform-state-${ENV}" \
+-backend-config="key=${ENV}/platform-infra.tfstate" \
 -backend-config="region=${AWS_REGION}"
-#\ -backend-config="role_arn=arn:aws:iam::${ACCOUNT_ID}:role/aldo-jenkins" \
-#-backend-config="session_name=${ENV}-omni-dataapps"
+#\ -backend-config="role_arn=arn:aws:iam::${ACCOUNT_ID}:role/deployment-role" \
+#-backend-config="session_name=${ENV}-session"
 
 terraform validate
 terraform plan -var-file=envs/${ENV}.tfvars
