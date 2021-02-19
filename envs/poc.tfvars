@@ -1,3 +1,3 @@
 region = "us-east-1"
-env = "poc"
-ecr_name = "isengardecr"
+env = "poc-xerris"
+ecr_name = "isengard-xerris-ecr"
