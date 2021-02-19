@@ -18,10 +18,11 @@ jobs:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: us-west-2
-    #- name: Inject SSH Credentials
-    #  uses: PhutureCorp/container-ssh-agent@v0.0.1
-    #  with:
-    #    ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+    - name: Inject SSH Credentials
+      uses: PhutureCorp/container-ssh-agent@v0.0.1
+      with:
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+        home-dir: "/home/runner"
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v1
       with:
