@@ -21,8 +21,8 @@ jobs:
     - name: Inject SSH Credentials
       uses: PhutureCorp/container-ssh-agent@v0.0.1
       with:
-        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
         home-dir: "/home/runner"
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v1
       with:
