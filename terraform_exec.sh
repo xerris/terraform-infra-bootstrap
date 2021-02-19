@@ -6,7 +6,8 @@ echo "###############################"
 
 #If var true apply  will be exec
 APPLY=$1
-
+echo "${ENV}"
+echo "${AWS_REGION}"
 terraform init \
 -backend-config="bucket=terraform-state-${ENV}" \
 -backend-config="key=${ENV}/platform-infra.tfstate" \

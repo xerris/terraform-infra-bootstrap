@@ -31,9 +31,11 @@ jobs:
       run: |
         pwd
         export ENV=poc
+        export AWS_REGION=us-east-1
         sh terraform_exec.sh 0
 
     - name: Run Terraform Apply
       run: |
         export ENV=poc
+        export AWS_REGION=us-east-1
         sh terraform_exec.sh 1
