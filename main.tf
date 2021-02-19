@@ -1,5 +1,5 @@
 module "ecr_module"{
-    source = "git@bitbucket.org:xerris/platform-modules.git//ecr"
-    ecr_name = var.ecr_name
+    source = "git@github.com:xerris/aws-modules.git//ecr"
+    ecr_name = "${var.env}-${var.ecr_name}"
 }
 

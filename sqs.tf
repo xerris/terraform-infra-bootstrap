@@ -1,5 +1,5 @@
 module "sqs_module" {
-  source = "git@bitbucket.org:xerris/platform-modules.git//sqs"
+  source = "git@github.com:xerris/aws-modules.git//sqs"
   create = true
   name = "${var.env}-test-sqs"
   tags = {

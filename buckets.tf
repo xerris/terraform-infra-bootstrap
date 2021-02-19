@@ -3,7 +3,7 @@ data "aws_kms_key" "aws_s3_key" {
 }
 
 module "test_bucket" {
-  source = "git@bitbucket.org:xerris/platform-modules.git//s3"
+  source = "git@github.com:xerris/aws-modules.git//s3"
 
   bucket        = "${var.env}-test-bucket-xerris"
   force_destroy = true
