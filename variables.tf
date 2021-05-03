@@ -22,3 +22,7 @@ variable "main_apigw_name"{
 variable "account_id" {
   default = "1212121212"
 }
+
+variable "images_to_keep" {
+  default= 15
+}
