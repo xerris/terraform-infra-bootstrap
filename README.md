@@ -1,4 +1,4 @@
-# Terraform-eks-apps-bootstrap
+# Terraform-infra-bootstrap
 
 ## Introduction
 This repo has the objective to create Ecs, Dynamodb, Sqs and Api Gateway
