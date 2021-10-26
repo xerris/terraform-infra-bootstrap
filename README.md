@@ -1,7 +1,24 @@
 # Terraform-infra-bootstrap
 
 ## Introduction
-This repo has the objective to create Ecs, Dynamodb, Sqs and Api Gateway
+This repository quickly spins up the necessary resources to create applications by creating an ECS (Elastic Container Service) cluster, Dynamodb table, SQS module and API Gateway.
+
+## Prerequisites 
+Terraform version 0.15.1
+The  .terraform-version or version.tf works with tfenv . It will install if needed and switch to the Terrraform version specified.
+# version.tf 
+```
+terraform {
+  required_version = ">= 0.15"
+}
+```
+# .terraform-version
+```
+terraform {
+  required_version = ">= 0.15"
+}
+```
+
 
 ## Environment Variables
 
@@ -77,3 +94,39 @@ Environment variables needed to execute this deployment.
 | <a name="output_ecr_registry_id"></a> [ecr\_registry\_id](#output\_ecr\_registry\_id) | n/a |
 | <a name="output_main_apigw_id"></a> [main\_apigw\_id](#output\_main\_apigw\_id) | n/a |
  
+## Execution Steps
+
+* Initialize the Environment Variables
+
+```
+export AWS_ACCESS_KEY_ID="XXXXXXXXXXXXXXXXXXXXXXXXXXX"
+export AWS_SECRET_ACCESS_KEY="YYYYYYYYYYYYYYYYYYYYYYYYY"
+export AWS_REGION=ca-central-1
+```
+
+The `terraform_exec.sh` script receives one parameter that indicates the action to be executed.
+
+```
+0 = Executes a terraform plan
+1 = Executes a terraform apply
+2 = Executes a terraform destroy
+```
+
+
+* Execute a Terraform Plan on the project folder
+
+```
+terraform_exec.sh 0
+```
+
+* Execute a Terraform apply on the project folder
+
+```
+terraform_exec.sh 1
+```
+
+* Execute a Terraform Destroy on the project folder
+
+```
+terraform_exec.sh 2
+```
