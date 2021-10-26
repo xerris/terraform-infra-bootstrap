@@ -102,6 +102,7 @@ Environment variables needed to execute this deployment.
 export AWS_ACCESS_KEY_ID="XXXXXXXXXXXXXXXXXXXXXXXXXXX"
 export AWS_SECRET_ACCESS_KEY="YYYYYYYYYYYYYYYYYYYYYYYYY"
 export AWS_REGION=ca-central-1
+export ENV=<env>
 ```
 
 The `terraform_exec.sh` script receives one parameter that indicates the action to be executed.
@@ -116,17 +117,17 @@ The `terraform_exec.sh` script receives one parameter that indicates the action 
 * Execute a Terraform Plan on the project folder
 
 ```
-terraform_exec.sh 0
+bash terraform_exec.sh 0
 ```
 
 * Execute a Terraform apply on the project folder
 
 ```
-terraform_exec.sh 1
+bash terraform_exec.sh 1
 ```
 
 * Execute a Terraform Destroy on the project folder
 
 ```
-terraform_exec.sh 2
+bash terraform_exec.sh 2
 ```
