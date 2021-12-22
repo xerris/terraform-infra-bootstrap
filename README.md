@@ -5,7 +5,7 @@ This repository quickly spins up the necessary resources to create applications 
 
 ## Prerequisites 
 Terraform version 0.15.1
-The  .terraform-version or version.tf works with tfenv . It will install if needed and switch to the Terrraform version specified.
+The  .terraform-version or version.tf works with tfenv . It will install if needed and switch to the Terraform version specified.
 # version.tf 
 ```
 terraform {
