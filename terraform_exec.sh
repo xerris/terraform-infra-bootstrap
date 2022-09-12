@@ -5,7 +5,7 @@ echo "## Starting Terraform script ##"
 echo "###############################"
 
 #If var true apply  will be exec
-APPLY=$2
+APPLY=$1
 echo "${ENV}"
 echo "${AWS_REGION}"
 terraform init \
