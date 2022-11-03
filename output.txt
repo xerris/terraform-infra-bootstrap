@@ -1,0 +1,535 @@
+[0m[1mdata.aws_kms_key.aws_s3_key: Reading...[0m[0m
+[0m[1mdata.aws_kms_key.aws_s3_key: Read complete after 0s [id=fbfd10be-a2f9-423a-8b94-352f353e07ff][0m
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  [32m+[0m create
+ [36m<=[0m read (data resources)
+[0m
+Terraform will perform the following actions:
+
+[1m  # aws_apigatewayv2_api.main_apigw[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_apigatewayv2_api" "main_apigw" {
+      [32m+[0m [0m[1m[0mapi_endpoint[0m[0m                 = (known after apply)
+      [32m+[0m [0m[1m[0mapi_key_selection_expression[0m[0m = "$request.header.x-api-key"
+      [32m+[0m [0m[1m[0marn[0m[0m                          = (known after apply)
+      [32m+[0m [0m[1m[0mexecution_arn[0m[0m                = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m                           = (known after apply)
+      [32m+[0m [0m[1m[0mname[0m[0m                         = "dev-dev"
+      [32m+[0m [0m[1m[0mprotocol_type[0m[0m                = "HTTP"
+      [32m+[0m [0m[1m[0mroute_selection_expression[0m[0m   = "$request.method $request.path"
+      [32m+[0m [0m[1m[0mtags_all[0m[0m                     = (known after apply)
+    }
+
+[1m  # module.dynamodb_table.aws_dynamodb_table.this[0][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_dynamodb_table" "this" {
+      [32m+[0m [0m[1m[0marn[0m[0m              = (known after apply)
+      [32m+[0m [0m[1m[0mbilling_mode[0m[0m     = "PAY_PER_REQUEST"
+      [32m+[0m [0m[1m[0mhash_key[0m[0m         = "id"
+      [32m+[0m [0m[1m[0mid[0m[0m               = (known after apply)
+      [32m+[0m [0m[1m[0mname[0m[0m             = "dev-pets-table"
+      [32m+[0m [0m[1m[0mrange_key[0m[0m        = "title"
+      [32m+[0m [0m[1m[0mread_capacity[0m[0m    = (known after apply)
+      [32m+[0m [0m[1m[0mstream_arn[0m[0m       = (known after apply)
+      [32m+[0m [0m[1m[0mstream_enabled[0m[0m   = false
+      [32m+[0m [0m[1m[0mstream_label[0m[0m     = (known after apply)
+      [32m+[0m [0m[1m[0mstream_view_type[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mtags[0m[0m             = {
+          [32m+[0m [0m"Environment" = "isengard"
+          [32m+[0m [0m"Name"        = "dev-pets-table"
+          [32m+[0m [0m"Terraform"   = "true"
+        }
+      [32m+[0m [0m[1m[0mtags_all[0m[0m         = {
+          [32m+[0m [0m"Environment" = "isengard"
+          [32m+[0m [0m"Name"        = "dev-pets-table"
+          [32m+[0m [0m"Terraform"   = "true"
+        }
+      [32m+[0m [0m[1m[0mwrite_capacity[0m[0m   = (known after apply)
+
+      [32m+[0m [0mattribute {
+          [32m+[0m [0m[1m[0mname[0m[0m = "age"
+          [32m+[0m [0m[1m[0mtype[0m[0m = "N"
+        }
+      [32m+[0m [0mattribute {
+          [32m+[0m [0m[1m[0mname[0m[0m = "id"
+          [32m+[0m [0m[1m[0mtype[0m[0m = "N"
+        }
+      [32m+[0m [0mattribute {
+          [32m+[0m [0m[1m[0mname[0m[0m = "title"
+          [32m+[0m [0m[1m[0mtype[0m[0m = "S"
+        }
+
+      [32m+[0m [0mglobal_secondary_index {
+          [32m+[0m [0m[1m[0mhash_key[0m[0m           = "title"
+          [32m+[0m [0m[1m[0mname[0m[0m               = "TitleIndex"
+          [32m+[0m [0m[1m[0mnon_key_attributes[0m[0m = [
+              [32m+[0m [0m"id",
+            ]
+          [32m+[0m [0m[1m[0mprojection_type[0m[0m    = "INCLUDE"
+          [32m+[0m [0m[1m[0mrange_key[0m[0m          = "age"
+        }
+
+      [32m+[0m [0mpoint_in_time_recovery {
+          [32m+[0m [0m[1m[0menabled[0m[0m = false
+        }
+
+      [32m+[0m [0mserver_side_encryption {
+          [32m+[0m [0m[1m[0menabled[0m[0m     = false
+          [32m+[0m [0m[1m[0mkms_key_arn[0m[0m = (known after apply)
+        }
+
+      [32m+[0m [0mtimeouts {
+          [32m+[0m [0m[1m[0mcreate[0m[0m = "10m"
+          [32m+[0m [0m[1m[0mdelete[0m[0m = "10m"
+          [32m+[0m [0m[1m[0mupdate[0m[0m = "60m"
+        }
+
+      [32m+[0m [0mttl {
+          [32m+[0m [0m[1m[0menabled[0m[0m = false
+        }
+    }
+
+[1m  # module.ecr_cleanup.aws_cloudwatch_event_rule.night_clean[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_cloudwatch_event_rule" "night_clean" {
+      [32m+[0m [0m[1m[0marn[0m[0m                 = (known after apply)
+      [32m+[0m [0m[1m[0mdescription[0m[0m         = "Cron ECR Clean"
+      [32m+[0m [0m[1m[0mevent_bus_name[0m[0m      = "default"
+      [32m+[0m [0m[1m[0mid[0m[0m                  = (known after apply)
+      [32m+[0m [0m[1m[0mis_enabled[0m[0m          = true
+      [32m+[0m [0m[1m[0mname[0m[0m                = "dev-cron-ecr-clean"
+      [32m+[0m [0m[1m[0mname_prefix[0m[0m         = (known after apply)
+      [32m+[0m [0m[1m[0mschedule_expression[0m[0m = "cron(0 0 * * ? *)"
+      [32m+[0m [0m[1m[0mtags_all[0m[0m            = (known after apply)
+    }
+
+[1m  # module.ecr_cleanup.aws_cloudwatch_event_target.target_night_clean[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_cloudwatch_event_target" "target_night_clean" {
+      [32m+[0m [0m[1m[0marn[0m[0m            = (known after apply)
+      [32m+[0m [0m[1m[0mevent_bus_name[0m[0m = "default"
+      [32m+[0m [0m[1m[0mid[0m[0m             = (known after apply)
+      [32m+[0m [0m[1m[0mrule[0m[0m           = "dev-cron-ecr-clean"
+      [32m+[0m [0m[1m[0mtarget_id[0m[0m      = "check_foo"
+    }
+
+[1m  # module.ecr_cleanup.aws_iam_role.lambda-ecr-cleaner-role[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_iam_role" "lambda-ecr-cleaner-role" {
+      [32m+[0m [0m[1m[0marn[0m[0m                   = (known after apply)
+      [32m+[0m [0m[1m[0massume_role_policy[0m[0m    = jsonencode(
+            {
+              [32m+[0m [0mStatement = [
+                  [32m+[0m [0m{
+                      [32m+[0m [0mAction    = "sts:AssumeRole"
+                      [32m+[0m [0mEffect    = "Allow"
+                      [32m+[0m [0mPrincipal = {
+                          [32m+[0m [0mService = "lambda.amazonaws.com"
+                        }
+                      [32m+[0m [0mSid       = ""
+                    },
+                ]
+              [32m+[0m [0mVersion   = "2012-10-17"
+            }
+        )
+      [32m+[0m [0m[1m[0mcreate_date[0m[0m           = (known after apply)
+      [32m+[0m [0m[1m[0mforce_detach_policies[0m[0m = false
+      [32m+[0m [0m[1m[0mid[0m[0m                    = (known after apply)
+      [32m+[0m [0m[1m[0mmanaged_policy_arns[0m[0m   = (known after apply)
+      [32m+[0m [0m[1m[0mmax_session_duration[0m[0m  = 3600
+      [32m+[0m [0m[1m[0mname[0m[0m                  = "dev-lambda-ecr-cleaner-role"
+      [32m+[0m [0m[1m[0mname_prefix[0m[0m           = (known after apply)
+      [32m+[0m [0m[1m[0mpath[0m[0m                  = "/"
+      [32m+[0m [0m[1m[0mtags[0m[0m                  = {
+          [32m+[0m [0m"Environment" = "dev"
+          [32m+[0m [0m"Terraform"   = "true"
+        }
+      [32m+[0m [0m[1m[0mtags_all[0m[0m              = {
+          [32m+[0m [0m"Environment" = "dev"
+          [32m+[0m [0m"Terraform"   = "true"
+        }
+      [32m+[0m [0m[1m[0munique_id[0m[0m             = (known after apply)
+
+      [32m+[0m [0minline_policy {
+          [32m+[0m [0m[1m[0mname[0m[0m   = (known after apply)
+          [32m+[0m [0m[1m[0mpolicy[0m[0m = (known after apply)
+        }
+    }
+
+[1m  # module.ecr_cleanup.aws_iam_role_policy.lambda-ecr-cleaner-role-policy[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_iam_role_policy" "lambda-ecr-cleaner-role-policy" {
+      [32m+[0m [0m[1m[0mid[0m[0m     = (known after apply)
+      [32m+[0m [0m[1m[0mname[0m[0m   = "dev-lambda-ecr-cleaner-role"
+      [32m+[0m [0m[1m[0mpolicy[0m[0m = jsonencode(
+            {
+              [32m+[0m [0mStatement = [
+                  [32m+[0m [0m{
+                      [32m+[0m [0mAction   = [
+                          [32m+[0m [0m"ecr:*",
+                          [32m+[0m [0m"ecs:*",
+                          [32m+[0m [0m"lambda:*",
+                          [32m+[0m [0m"logs:*",
+                          [32m+[0m [0m"s3:*",
+                          [32m+[0m [0m"logs:CreateLogGroup",
+                          [32m+[0m [0m"logs:CreateLogStream",
+                          [32m+[0m [0m"logs:PutLogEvents",
+                        ]
+                      [32m+[0m [0mEffect   = "Allow"
+                      [32m+[0m [0mResource = [
+                          [32m+[0m [0m"*",
+                        ]
+                    },
+                ]
+              [32m+[0m [0mVersion   = "2012-10-17"
+            }
+        )
+      [32m+[0m [0m[1m[0mrole[0m[0m   = (known after apply)
+    }
+
+[1m  # module.sqs_module.data.aws_arn.this[0][0m will be read during apply[0m
+  # (config refers to values not yet known)[0m
+[0m [36m<=[0m[0m data "aws_arn" "this" {
+      [32m+[0m [0m[1m[0maccount[0m[0m   = (known after apply)
+      [32m+[0m [0m[1m[0marn[0m[0m       = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m        = (known after apply)
+      [32m+[0m [0m[1m[0mpartition[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mregion[0m[0m    = (known after apply)
+      [32m+[0m [0m[1m[0mresource[0m[0m  = (known after apply)
+      [32m+[0m [0m[1m[0mservice[0m[0m   = (known after apply)
+    }
+
+[1m  # module.sqs_module.aws_sqs_queue.this[0][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_sqs_queue" "this" {
+      [32m+[0m [0m[1m[0marn[0m[0m                               = (known after apply)
+      [32m+[0m [0m[1m[0mcontent_based_deduplication[0m[0m       = false
+      [32m+[0m [0m[1m[0mdeduplication_scope[0m[0m               = (known after apply)
+      [32m+[0m [0m[1m[0mdelay_seconds[0m[0m                     = 0
+      [32m+[0m [0m[1m[0mfifo_queue[0m[0m                        = false
+      [32m+[0m [0m[1m[0mfifo_throughput_limit[0m[0m             = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m                                = (known after apply)
+      [32m+[0m [0m[1m[0mkms_data_key_reuse_period_seconds[0m[0m = 300
+      [32m+[0m [0m[1m[0mmax_message_size[0m[0m                  = 262144
+      [32m+[0m [0m[1m[0mmessage_retention_seconds[0m[0m         = 345600
+      [32m+[0m [0m[1m[0mname[0m[0m                              = "dev-test-sqs"
+      [32m+[0m [0m[1m[0mname_prefix[0m[0m                       = (known after apply)
+      [32m+[0m [0m[1m[0mreceive_wait_time_seconds[0m[0m         = 0
+      [32m+[0m [0m[1m[0mredrive_allow_policy[0m[0m              = (known after apply)
+      [32m+[0m [0m[1m[0mredrive_policy[0m[0m                    = (known after apply)
+      [32m+[0m [0m[1m[0msqs_managed_sse_enabled[0m[0m           = (known after apply)
+      [32m+[0m [0m[1m[0mtags[0m[0m                              = {
+          [32m+[0m [0m"Environment" = "dev"
+          [32m+[0m [0m"Secure"      = "false"
+          [32m+[0m [0m"Terraform"   = "true"
+        }
+      [32m+[0m [0m[1m[0mtags_all[0m[0m                          = {
+          [32m+[0m [0m"Environment" = "dev"
+          [32m+[0m [0m"Secure"      = "false"
+          [32m+[0m [0m"Terraform"   = "true"
+        }
+      [32m+[0m [0m[1m[0murl[0m[0m                               = (known after apply)
+      [32m+[0m [0m[1m[0mvisibility_timeout_seconds[0m[0m        = 30
+    }
+
+[1m  # module.test_bucket.aws_s3_bucket.this[0][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_s3_bucket" "this" {
+      [32m+[0m [0m[1m[0macceleration_status[0m[0m         = (known after apply)
+      [32m+[0m [0m[1m[0macl[0m[0m                         = "private"
+      [32m+[0m [0m[1m[0marn[0m[0m                         = (known after apply)
+      [32m+[0m [0m[1m[0mbucket[0m[0m                      = "dev-project-terraform-state-dev"
+      [32m+[0m [0m[1m[0mbucket_domain_name[0m[0m          = (known after apply)
+      [32m+[0m [0m[1m[0mbucket_regional_domain_name[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mforce_destroy[0m[0m               = true
+      [32m+[0m [0m[1m[0mhosted_zone_id[0m[0m              = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m                          = (known after apply)
+      [32m+[0m [0m[1m[0mobject_lock_enabled[0m[0m         = (known after apply)
+      [32m+[0m [0m[1m[0mpolicy[0m[0m                      = (known after apply)
+      [32m+[0m [0m[1m[0mregion[0m[0m                      = (known after apply)
+      [32m+[0m [0m[1m[0mrequest_payer[0m[0m               = (known after apply)
+      [32m+[0m [0m[1m[0mtags_all[0m[0m                    = (known after apply)
+      [32m+[0m [0m[1m[0mwebsite_domain[0m[0m              = (known after apply)
+      [32m+[0m [0m[1m[0mwebsite_endpoint[0m[0m            = (known after apply)
+
+      [32m+[0m [0mcors_rule {
+          [32m+[0m [0m[1m[0mallowed_headers[0m[0m = (known after apply)
+          [32m+[0m [0m[1m[0mallowed_methods[0m[0m = (known after apply)
+          [32m+[0m [0m[1m[0mallowed_origins[0m[0m = (known after apply)
+          [32m+[0m [0m[1m[0mexpose_headers[0m[0m  = (known after apply)
+          [32m+[0m [0m[1m[0mmax_age_seconds[0m[0m = (known after apply)
+        }
+
+      [32m+[0m [0mgrant {
+          [32m+[0m [0m[1m[0mid[0m[0m          = (known after apply)
+          [32m+[0m [0m[1m[0mpermissions[0m[0m = (known after apply)
+          [32m+[0m [0m[1m[0mtype[0m[0m        = (known after apply)
+          [32m+[0m [0m[1m[0muri[0m[0m         = (known after apply)
+        }
+
+      [32m+[0m [0mlifecycle_rule {
+          [32m+[0m [0m[1m[0mabort_incomplete_multipart_upload_days[0m[0m = (known after apply)
+          [32m+[0m [0m[1m[0menabled[0m[0m                                = (known after apply)
+          [32m+[0m [0m[1m[0mid[0m[0m                                     = (known after apply)
+          [32m+[0m [0m[1m[0mprefix[0m[0m                                 = (known after apply)
+          [32m+[0m [0m[1m[0mtags[0m[0m                                   = (known after apply)
+
+          [32m+[0m [0mexpiration {
+              [32m+[0m [0m[1m[0mdate[0m[0m                         = (known after apply)
+              [32m+[0m [0m[1m[0mdays[0m[0m                         = (known after apply)
+              [32m+[0m [0m[1m[0mexpired_object_delete_marker[0m[0m = (known after apply)
+            }
+
+          [32m+[0m [0mnoncurrent_version_expiration {
+              [32m+[0m [0m[1m[0mdays[0m[0m = (known after apply)
+            }
+
+          [32m+[0m [0mnoncurrent_version_transition {
+              [32m+[0m [0m[1m[0mdays[0m[0m          = (known after apply)
+              [32m+[0m [0m[1m[0mstorage_class[0m[0m = (known after apply)
+            }
+
+          [32m+[0m [0mtransition {
+              [32m+[0m [0m[1m[0mdate[0m[0m          = (known after apply)
+              [32m+[0m [0m[1m[0mdays[0m[0m          = (known after apply)
+              [32m+[0m [0m[1m[0mstorage_class[0m[0m = (known after apply)
+            }
+        }
+
+      [32m+[0m [0mlogging {
+          [32m+[0m [0m[1m[0mtarget_bucket[0m[0m = (known after apply)
+          [32m+[0m [0m[1m[0mtarget_prefix[0m[0m = (known after apply)
+        }
+
+      [32m+[0m [0mobject_lock_configuration {
+          [32m+[0m [0m[1m[0mobject_lock_enabled[0m[0m = (known after apply)
+
+          [32m+[0m [0mrule {
+              [32m+[0m [0mdefault_retention {
+                  [32m+[0m [0m[1m[0mdays[0m[0m  = (known after apply)
+                  [32m+[0m [0m[1m[0mmode[0m[0m  = (known after apply)
+                  [32m+[0m [0m[1m[0myears[0m[0m = (known after apply)
+                }
+            }
+        }
+
+      [32m+[0m [0mreplication_configuration {
+          [32m+[0m [0m[1m[0mrole[0m[0m = (known after apply)
+
+          [32m+[0m [0mrules {
+              [32m+[0m [0m[1m[0mdelete_marker_replication_status[0m[0m = (known after apply)
+              [32m+[0m [0m[1m[0mid[0m[0m                               = (known after apply)
+              [32m+[0m [0m[1m[0mprefix[0m[0m                           = (known after apply)
+              [32m+[0m [0m[1m[0mpriority[0m[0m                         = (known after apply)
+              [32m+[0m [0m[1m[0mstatus[0m[0m                           = (known after apply)
+
+              [32m+[0m [0mdestination {
+                  [32m+[0m [0m[1m[0maccount_id[0m[0m         = (known after apply)
+                  [32m+[0m [0m[1m[0mbucket[0m[0m             = (known after apply)
+                  [32m+[0m [0m[1m[0mreplica_kms_key_id[0m[0m = (known after apply)
+                  [32m+[0m [0m[1m[0mstorage_class[0m[0m      = (known after apply)
+
+                  [32m+[0m [0maccess_control_translation {
+                      [32m+[0m [0m[1m[0mowner[0m[0m = (known after apply)
+                    }
+
+                  [32m+[0m [0mmetrics {
+                      [32m+[0m [0m[1m[0mminutes[0m[0m = (known after apply)
+                      [32m+[0m [0m[1m[0mstatus[0m[0m  = (known after apply)
+                    }
+
+                  [32m+[0m [0mreplication_time {
+                      [32m+[0m [0m[1m[0mminutes[0m[0m = (known after apply)
+                      [32m+[0m [0m[1m[0mstatus[0m[0m  = (known after apply)
+                    }
+                }
+
+              [32m+[0m [0mfilter {
+                  [32m+[0m [0m[1m[0mprefix[0m[0m = (known after apply)
+                  [32m+[0m [0m[1m[0mtags[0m[0m   = (known after apply)
+                }
+
+              [32m+[0m [0msource_selection_criteria {
+                  [32m+[0m [0msse_kms_encrypted_objects {
+                      [32m+[0m [0m[1m[0menabled[0m[0m = (known after apply)
+                    }
+                }
+            }
+        }
+
+      [32m+[0m [0mserver_side_encryption_configuration {
+          [32m+[0m [0mrule {
+              [32m+[0m [0mapply_server_side_encryption_by_default {
+                  [32m+[0m [0m[1m[0mkms_master_key_id[0m[0m = "fbfd10be-a2f9-423a-8b94-352f353e07ff"
+                  [32m+[0m [0m[1m[0msse_algorithm[0m[0m     = "aws:kms"
+                }
+            }
+        }
+
+      [32m+[0m [0mversioning {
+          [32m+[0m [0m[1m[0menabled[0m[0m    = (known after apply)
+          [32m+[0m [0m[1m[0mmfa_delete[0m[0m = (known after apply)
+        }
+
+      [32m+[0m [0mwebsite {
+          [32m+[0m [0m[1m[0merror_document[0m[0m           = (known after apply)
+          [32m+[0m [0m[1m[0mindex_document[0m[0m           = (known after apply)
+          [32m+[0m [0m[1m[0mredirect_all_requests_to[0m[0m = (known after apply)
+          [32m+[0m [0m[1m[0mrouting_rules[0m[0m            = (known after apply)
+        }
+    }
+
+[1m  # module.test_bucket.aws_s3_bucket_public_access_block.this[0][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_s3_bucket_public_access_block" "this" {
+      [32m+[0m [0m[1m[0mblock_public_acls[0m[0m       = false
+      [32m+[0m [0m[1m[0mblock_public_policy[0m[0m     = false
+      [32m+[0m [0m[1m[0mbucket[0m[0m                  = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m                      = (known after apply)
+      [32m+[0m [0m[1m[0mignore_public_acls[0m[0m      = false
+      [32m+[0m [0m[1m[0mrestrict_public_buckets[0m[0m = false
+    }
+
+[1m  # module.ecr_cleanup.module.lambda_ecr_cleaner.aws_cloudwatch_log_group.lambda[0][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_cloudwatch_log_group" "lambda" {
+      [32m+[0m [0m[1m[0marn[0m[0m               = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m                = (known after apply)
+      [32m+[0m [0m[1m[0mname[0m[0m              = "/aws/lambda/dev-ecr-cleanup-lambda"
+      [32m+[0m [0m[1m[0mretention_in_days[0m[0m = 0
+      [32m+[0m [0m[1m[0mtags[0m[0m              = {
+          [32m+[0m [0m"Environment" = "dev"
+          [32m+[0m [0m"Terraform"   = "true"
+        }
+      [32m+[0m [0m[1m[0mtags_all[0m[0m          = {
+          [32m+[0m [0m"Environment" = "dev"
+          [32m+[0m [0m"Terraform"   = "true"
+        }
+    }
+
+[1m  # module.ecr_cleanup.module.lambda_ecr_cleaner.aws_lambda_function.this[0][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_lambda_function" "this" {
+      [32m+[0m [0m[1m[0marchitectures[0m[0m                  = (known after apply)
+      [32m+[0m [0m[1m[0marn[0m[0m                            = (known after apply)
+      [32m+[0m [0m[1m[0mdescription[0m[0m                    = "Lambda function that removes the unused ecr images"
+      [32m+[0m [0m[1m[0mfilename[0m[0m                       = ".terraform/modules/ecr_cleanup/ecr/ecrCleaner/package.zip"
+      [32m+[0m [0m[1m[0mfunction_name[0m[0m                  = "dev-ecr-cleanup-lambda"
+      [32m+[0m [0m[1m[0mhandler[0m[0m                        = "package.handler"
+      [32m+[0m [0m[1m[0mid[0m[0m                             = (known after apply)
+      [32m+[0m [0m[1m[0minvoke_arn[0m[0m                     = (known after apply)
+      [32m+[0m [0m[1m[0mlast_modified[0m[0m                  = (known after apply)
+      [32m+[0m [0m[1m[0mmemory_size[0m[0m                    = 128
+      [32m+[0m [0m[1m[0mpackage_type[0m[0m                   = "Zip"
+      [32m+[0m [0m[1m[0mpublish[0m[0m                        = false
+      [32m+[0m [0m[1m[0mqualified_arn[0m[0m                  = (known after apply)
+      [32m+[0m [0m[1m[0mqualified_invoke_arn[0m[0m           = (known after apply)
+      [32m+[0m [0m[1m[0mreserved_concurrent_executions[0m[0m = -1
+      [32m+[0m [0m[1m[0mrole[0m[0m                           = (known after apply)
+      [32m+[0m [0m[1m[0mruntime[0m[0m                        = "python3.8"
+      [32m+[0m [0m[1m[0msigning_job_arn[0m[0m                = (known after apply)
+      [32m+[0m [0m[1m[0msigning_profile_version_arn[0m[0m    = (known after apply)
+      [32m+[0m [0m[1m[0msource_code_hash[0m[0m               = "QgLkpvei5MhjBzSzcPcRgXiZBmzVwW8PifhdxmwmWB4="
+      [32m+[0m [0m[1m[0msource_code_size[0m[0m               = (known after apply)
+      [32m+[0m [0m[1m[0mtags[0m[0m                           = {
+          [32m+[0m [0m"Environment" = "dev"
+          [32m+[0m [0m"Terraform"   = "true"
+        }
+      [32m+[0m [0m[1m[0mtags_all[0m[0m                       = {
+          [32m+[0m [0m"Environment" = "dev"
+          [32m+[0m [0m"Terraform"   = "true"
+        }
+      [32m+[0m [0m[1m[0mtimeout[0m[0m                        = 120
+      [32m+[0m [0m[1m[0mversion[0m[0m                        = (known after apply)
+
+      [32m+[0m [0menvironment {
+          [32m+[0m [0m[1m[0mvariables[0m[0m = {
+              [32m+[0m [0m"DRYRUN"            = "false"
+              [32m+[0m [0m"IGNORE_TAGS_REGEX" = "release|archive"
+              [32m+[0m [0m"IMAGES_TO_KEEP"    = "15"
+              [32m+[0m [0m"REGION"            = "us-east-1"
+              [32m+[0m [0m"REPO_NAME"         = ""
+            }
+        }
+
+      [32m+[0m [0mephemeral_storage {
+          [32m+[0m [0m[1m[0msize[0m[0m = (known after apply)
+        }
+
+      [32m+[0m [0mtracing_config {
+          [32m+[0m [0m[1m[0mmode[0m[0m = (known after apply)
+        }
+    }
+
+[1m  # module.ecr_module.module.ecr.aws_ecr_repository.repo[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_ecr_repository" "repo" {
+      [32m+[0m [0m[1m[0marn[0m[0m                  = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m                   = (known after apply)
+      [32m+[0m [0m[1m[0mimage_tag_mutability[0m[0m = "MUTABLE"
+      [32m+[0m [0m[1m[0mname[0m[0m                 = "isengardecr"
+      [32m+[0m [0m[1m[0mregistry_id[0m[0m          = (known after apply)
+      [32m+[0m [0m[1m[0mrepository_url[0m[0m       = (known after apply)
+      [32m+[0m [0m[1m[0mtags[0m[0m                 = {
+          [32m+[0m [0m"env_tag" = "isengardecr"
+        }
+      [32m+[0m [0m[1m[0mtags_all[0m[0m             = {
+          [32m+[0m [0m"env_tag" = "isengardecr"
+        }
+
+      [32m+[0m [0mimage_scanning_configuration {
+          [32m+[0m [0m[1m[0mscan_on_push[0m[0m = true
+        }
+
+      [32m+[0m [0mtimeouts {
+          [32m+[0m [0m[1m[0mdelete[0m[0m = "60m"
+        }
+    }
+
+[1m  # module.ecr_module.module.ecr.aws_ecr_repository_policy.policy[0][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_ecr_repository_policy" "policy" {
+      [32m+[0m [0m[1m[0mid[0m[0m          = (known after apply)
+      [32m+[0m [0m[1m[0mpolicy[0m[0m      = jsonencode(
+            {
+              [32m+[0m [0mStatement = [
+                  [32m+[0m [0m{
+                      [32m+[0m [0mAction    = [
+                          [32m+[0m [0m"ecr:GetDownloadUrlForLayer",
+                          [32m+[0m [0m"ecr:BatchGetImage",
+                          [32m+[0m [0m"ecr:BatchCheckLayerAvailability",
+                          [32m+[0m [0m"ecr:PutImage",
+                          [32m+[0m [0m"ecr:InitiateLayerUpload",
+                          [32m+[0m [0m"ecr:UploadLayerPart",
+                          [32m+[0m [0m"ecr:CompleteLayerUpload",
+                          [32m+[0m [0m"ecr:DescribeRepositories",
+                          [32m+[0m [0m"ecr:GetRepositoryPolicy",
+                          [32m+[0m [0m"ecr:ListImages",
+                          [32m+[0m [0m"ecr:DeleteRepository",
+                          [32m+[0m [0m"ecr:BatchDeleteImage",
+                          [32m+[0m [0m"ecr:SetRepositoryPolicy",
+                          [32m+[0m [0m"ecr:DeleteRepositoryPolicy",
+                        ]
+                      [32m+[0m [0mEffect    = "Allow"
+                      [32m+[0m [0mPrincipal = "*"
+                      [32m+[0m [0mSid       = "repo policy"
+                    },
+                ]
+              [32m+[0m [0mVersion   = "2008-10-17"
+            }
+        )
+      [32m+[0m [0m[1m[0mregistry_id[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mrepository[0m[0m  = "isengardecr"
+    }
+
+[0m[1mPlan:[0m 13 to add, 0 to change, 0 to destroy.
+[0m[0m
+[1mChanges to Outputs:[0m[0m
+  [32m+[0m [0m[1m[0mecr_name[0m[0m        = "isengardecr"
+  [32m+[0m [0m[1m[0mecr_registry_id[0m[0m = (known after apply)
+  [32m+[0m [0m[1m[0mmain_apigw_id[0m[0m   = (known after apply)
+[33m╷[0m[0m
+[33m│[0m [0m[1m[33mWarning: [0m[0m[1mArgument is deprecated[0m
+[33m│[0m [0m
+[33m│[0m [0m[0m  with module.test_bucket.aws_s3_bucket.this[0],
+[33m│[0m [0m  on .terraform\modules\test_bucket\s3\main.tf line 1, in resource "aws_s3_bucket" "this":
+[33m│[0m [0m   1: resource "aws_s3_bucket" "this" [4m{[0m[0m
+[33m│[0m [0m
+[33m│[0m [0mUse the aws_s3_bucket_server_side_encryption_configuration resource instead
+[33m│[0m [0m
+[33m│[0m [0m(and one more similar warning elsewhere)
+[33m╵[0m[0m
+[90m
+─────────────────────────────────────────────────────────────────────────────[0m
+
+Note: You didn't use the -out option to save this plan, so Terraform can't
+guarantee to take exactly these actions if you run "terraform apply" now.

@@ -7,16 +7,16 @@ variable "ecr_name" {
   default = "isengardecr"
 }
 
-variable "dynamodb_table_name"{
-  default = "pets-table"
+variable "dev-project-terraform-state-lock-dynamo"{
+  default = "pets-table-1"
 }
 
 variable "env"{
-  default = "poc"
+  default = "dev"
 }
 
 variable "main_apigw_name"{
-  default = "poc"
+  default = "dev"
 }
 
 variable "account_id" {
