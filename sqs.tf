@@ -1,7 +1,7 @@
 module "sqs_module" {
   source = "git@github.com:xerris/aws-modules.git//sqs"
   create = true
-  name = "${var.env}-test-sqs-1"
+  name = "${var.env}-${var.sqs_name}"
   tags = {
     Secure = "false"
     Terraform   = "true"

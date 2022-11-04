@@ -5,7 +5,7 @@ data "aws_kms_key" "aws_s3_key" {
 module "test_bucket" {
   source = "git@github.com:xerris/aws-modules.git//s3"
 
-  bucket        = "${var.env}-project-terraform-state-dev"
+  bucket        = "${var.env}-${var.bucket_name}"
   force_destroy = true
 
   server_side_encryption_configuration = {

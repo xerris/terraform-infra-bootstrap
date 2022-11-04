@@ -26,3 +26,19 @@ variable "account_id" {
 variable "images_to_keep" {
   default= 15
 }
+
+variable "owner_tag" {
+  default = "nithin"
+}
+
+variable "project" {
+  default = "xerris-101"
+}
+
+variable "bucket_name" {
+  default = "test-bucket-xerris"
+}
+
+variable "sqs_name" {
+  default = "test-sqs"
+}

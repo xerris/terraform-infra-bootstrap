@@ -4,6 +4,14 @@ module "ecr_module"{
 
   tags = {
     env_tag = var.ecr_name
+    ecr_name = "${var.env}-${var.ecr_name}"
+
+  tags = {
+    Terraform   = "true"
+    Environment = var.env
+    Owner       = var.owner_tag
+    Project     = var.project
+    map-migrated = "d-server-00ny2jr2wsulpg"
   }
 }
 
