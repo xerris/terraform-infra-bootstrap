@@ -36,7 +36,7 @@ variable "project" {
 }
 
 variable "bucket_name" {
-  default = "test-bucket-xerris"
+  default = "test-bucket-xerris-nithin"
 }
 
 variable "sqs_name" {

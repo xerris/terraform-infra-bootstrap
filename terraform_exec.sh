@@ -5,11 +5,11 @@ echo "## Starting Terraform script ##"
 echo "###############################"
 
 #If var true apply  will be exec
-APPLY=$1
+APPLY=$2
 echo "${ENV}"
 echo "${AWS_REGION}"
 terraform init \
--backend-config="bucket=project-terraform-state-${ENV}" \
+-backend-config="${var.env}-${var.bucket_name}" \
 -backend-config="key=${ENV}/platform-infra.tfstate" \
 -backend-config="dynamodb_table=${ENV}-dev-project-terraform-state-lock-dynamo" \
 -backend-config="region=${AWS_REGION}"
