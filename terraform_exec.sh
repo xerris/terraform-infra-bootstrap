@@ -9,7 +9,7 @@ APPLY=$2
 echo "${ENV}"
 echo "${AWS_REGION}"
 terraform init \
--backend-config="${var.env}-${var.bucket_name}" \
+-backend-config="dev-test-bucket-xerris-nithin" \
 -backend-config="key=${ENV}/platform-infra.tfstate" \
 -backend-config="dynamodb_table=${ENV}-dev-project-terraform-state-lock-dynamo" \
 -backend-config="region=${AWS_REGION}"
