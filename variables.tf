@@ -42,3 +42,7 @@ variable "bucket_name" {
 variable "sqs_name" {
   default = "test-sqs"
 }
+
+variable "dynamodb_table_name" {
+  default = "dynamodb_table_nithin"
+}
