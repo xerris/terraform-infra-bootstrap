@@ -11,7 +11,7 @@ echo "${AWS_REGION}"
 terraform init \
 -backend-config="bucket=dev-test-bucket-xerris-nithin" \
 -backend-config="key=${ENV}/platform-infra.tfstate" \
--backend-config="dynamodb_table=${ENV}-project-terraform-state-lock-dynamo" \
+-backend-config="dynamodb_table=${ENV}-dynamodb_table_nithin" \
 -backend-config="region=${AWS_REGION}"
 #\ -backend-config="role_arn=arn:aws:iam::${ACCOUNT_ID}:role/deployment-role" \
 #-backend-config="session_name=${ENV}-session"

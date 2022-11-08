@@ -1,6 +1,6 @@
 region = "us-east-1"
 ecr_name = "isengardecr-dev"
-dynamodb_table_name = "dynamodb_table_nithin"
+dynamodb_table_name = "dynamodb_table_nithin-1"
 env = "dev"
 images_to_keep= 15
 owner_tag = "nithin-101"
