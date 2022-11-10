@@ -1,9 +1,9 @@
 region = "us-east-1"
-ecr_name = "isengardecr-dev"
-dynamodb_table_name = "dynamodb_table_nithin-1"
+ecr_name = "isengardecr-xerris"
+dynamodb_table_name = "project-terraform-state-lock-dynamo-nithin"
 env = "dev"
 images_to_keep= 15
 owner_tag = "nithin-101"
 project = "xerris-dev-101"
-bucket_name = "test-bucket-xerris-nithin"
+bucket_name = "test-bucket-xerris-nithin1"
 sqs_name = "test-sqs-nithin"

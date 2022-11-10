@@ -7,9 +7,9 @@ variable "ecr_name" {
   default = "isengardecr"
 }
 
-variable "dev-project-terraform-state-lock-dynamo"{
-  default = "pets-table-1"
-}
+#variable "dev-project-terraform-state-lock-dynamo"{
+ # default = "pets-table-1"
+#}
 
 variable "env"{
   default = "dev"
@@ -36,13 +36,13 @@ variable "project" {
 }
 
 variable "bucket_name" {
-  default = "test-bucket-xerris-nithin"
+ default = "test-bucket-xerris-nithin"
 }
 
 variable "sqs_name" {
-  default = "test-sqs"
+  default = "nithin-test-sqs"
 }
 
 variable "dynamodb_table_name" {
-  default = "dynamodb_table_nithin"
+ default = "dynamodb_table_nithin"
 }
