@@ -22,6 +22,7 @@ terraform init \
 #-backend-config="session_name=${ENV}-session"
 
 terraform validate
+terraform init
 terraform plan -var-file=envs/dev.tfvars
 #\ -var="account_id=${ACCOUNT_ID}"
 
