@@ -5,10 +5,6 @@ echo "## Starting Terraform script ##"
 echo "###############################"
 
 #If var true apply  will be exec
-#Environment variables needed to execute this deployment.
-export "${AWS_ACCESS_KEY_ID}"
-export "${AWS_SECRET_ACCESS_KEY}"
-export "${AWS_SESSION_TOKEN}"
 
 APPLY=$1
 echo "${ENV}"
