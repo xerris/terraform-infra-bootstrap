@@ -5,5 +5,5 @@ env = "dev"
 images_to_keep= 15
 owner_tag = "nithin-101"
 project = "xerris-dev-101"
-bucket_name = "test-backend-xerris-nithin2"
+bucket_name = "test-backend-xerris2-nithin2"
 sqs_name = "test-backend-sqs-nithin2"
