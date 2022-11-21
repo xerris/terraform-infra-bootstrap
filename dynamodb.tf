@@ -32,6 +32,6 @@ module "dynamodb_table" {
 
   tags = {
     Terraform   = "true"
-    Environment = "isengard"
+    Environment = "dynamo"
   }
 }

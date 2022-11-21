@@ -4,25 +4,36 @@ variable "region" {
 }
 
 variable "ecr_name" {
-  default = "isengardecr"
+  default = "ginu-ecr"
 }
 
+/*variable "tags_ecr"{
+  default= "ginu_ecr"
+  
+}*/
+
 variable "dynamodb_table_name"{
-  default = "pets-table"
+  default = "ginu-table"
 }
 
 variable "env"{
-  default = "poc"
+  default = "dev-ginu"
 }
 
 variable "main_apigw_name"{
-  default = "poc"
+  default = "dev-ginu"
 }
 
 variable "account_id" {
-  default = "1212121212"
+  default = "370365354210"
 }
 
 variable "images_to_keep" {
   default= 15
 }
+
+variable "tags_S3"{
+  default= "dev-ginu-s3-bucket"
+  
+}
+
