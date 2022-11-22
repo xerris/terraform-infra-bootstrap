@@ -1,7 +1,7 @@
 module "ecr_module"{
     source = "git@github.com:xerris/aws-modules.git//ecr"
     ecr_name = "${var.env}-${var.ecr_name}"
-    #tags = "${var.tags_ecr}"
+    #tags = "ginu" #"${var.tags_ecr}"
     #image_tag_mutability = "IMMUTABLE"
 }
 

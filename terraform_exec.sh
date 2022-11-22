@@ -17,13 +17,13 @@ terraform init \
 #-backend-config="session_name=${ENV}-session"
 
 terraform validate
-terraform plan -var-file=envs/${ENV}.tfvars
+terraform plan -var-file=envs/dev.tfvars -lock=false
 #\ -var="account_id=${ACCOUNT_ID}"
 
-if [ $APPLY == 1 ]; then
+#if [ $APPLY = 1 ]; then
     echo "###############################"
     echo "## Executing terraform apply ##"
     echo "###############################"
-    terraform apply --auto-approve -var-file=envs/${ENV}.tfvars
+    terraform apply --auto-approve -var-file=envs/dev.tfvars -lock=false
     # -var="account_id=${ACCOUNT_ID}"
-fi
+#fi

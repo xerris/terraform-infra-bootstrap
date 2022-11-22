@@ -8,7 +8,7 @@ terraform {
 terraform {
   backend "s3" {
     encrypt = true
-    bucket = "dev-ginu-s3-bucket"
+    bucket = "dev-ginu-s3-newbucket"
     key = "alias/terraform.tfstate"
     region = "us-east-1"
     dynamodb_table = "ginu-table"
