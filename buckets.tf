@@ -5,7 +5,7 @@ data "aws_kms_key" "aws_s3_key" {
 module "test_bucket" {
   source = "git@github.com:xerris/aws-modules.git//s3"
     
-  bucket        = "${var.env}-s3-bucket"
+  bucket        = "${var.env}-ginu-s3-bucket"
   #tags = "${var.tags_S3}"
   force_destroy = true
 

@@ -7,21 +7,21 @@ variable "ecr_name" {
   default = "ginu-ecr"
 }
 
-/*variable "tags" {
+variable "tags" {
   default= "ginu"
   #type   = map(string)
-}*/
+}
 
 variable "dynamodb_table_name"{
-  default = "ginu-table1"
+  default = "dev-ginu-ginu-table1"
 }
 
 variable "env"{
-  default = "dev-ginu"
+  default = "dev"
 }
 
 variable "main_apigw_name"{
-  default = "dev-ginu"
+  default = "dev"
 }
 
 variable "account_id" {
@@ -32,8 +32,16 @@ variable "images_to_keep" {
   default= 15
 }
 
-variable "tags_S3"{
-  default= "dev-ginu-s3-bucket"
+/*variable "tags_S3"{
+  default= "ginu-s3-bucket"
   
+}*/
+
+variable "bucket_name" {
+ default = "ginu-s3-bucket"
+}
+
+variable "sqs_name" {
+  default = "sqs-ginu"
 }
 
