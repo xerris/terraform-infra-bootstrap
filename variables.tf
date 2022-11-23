@@ -13,7 +13,7 @@ variable "ecr_name" {
 }*/
 
 variable "dynamodb_table_name"{
-  default = "ginu-table"
+  default = "ginu-table1"
 }
 
 variable "env"{

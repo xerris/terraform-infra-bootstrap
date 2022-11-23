@@ -11,7 +11,7 @@ terraform {
     bucket = "dev-ginu-s3-newbucket"
     key = "alias/terraform.tfstate"
     region = "us-east-1"
-    dynamodb_table = "ginu-table"
+    dynamodb_table = "ginu-table1"
   }
 }  
 
