@@ -1,9 +1,9 @@
 terraform {
   backend "s3" {
-    bucket = "dev-ginu-s3-newbucket"
+    /* bucket = "dev-ginu-s3-newbucket"
     key = "alias/terraform.tfstate"
     region = "us-east-1"
-    dynamodb_table = "ginu-table-state-lock"
+    dynamodb_table = "ginu-table-state-lock" */
   }
 }
 

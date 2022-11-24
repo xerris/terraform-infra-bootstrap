@@ -2,12 +2,12 @@ module "dynamodb_table" {
   source = "git@github.com:xerris/aws-modules.git//dynamodb"
 
   name      = "${var.env}-${var.dynamodb_table_name}"
-  hash_key  = "LockID"
+  hash_key  = "id"
   range_key = "title"
 
   attributes = [
     {
-      name = "LockID"
+      name = "id"
       type = "S"
     },
     {

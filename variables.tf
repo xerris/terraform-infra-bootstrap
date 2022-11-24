@@ -4,7 +4,7 @@ variable "region" {
 }
 
 variable "ecr_name" {
-  default = "ginu-ecr"
+  default = "dev-ginu-ecr"
 }
 
 /*variable "tags" {
@@ -45,3 +45,6 @@ variable "sqs_name" {
   default = "sqs-ginu"
 }
 
+variable "owner_tag"{
+  default = "Ginu"
+}

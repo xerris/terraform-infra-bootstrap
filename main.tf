@@ -1,7 +1,11 @@
 module "ecr_module"{
     source = "git@github.com:xerris/aws-modules.git//ecr"
     ecr_name = "${var.env}-${var.ecr_name}"
-    #tags = local.tags
+    tags = {
+    Terraform   = "true"
+    Environment = var.env
+    Owner       = var.owner_tag
+    }
     #image_tag_mutability = "IMMUTABLE"
 }
 
