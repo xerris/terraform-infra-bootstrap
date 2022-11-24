@@ -1,5 +1,9 @@
 region = "us-east-1"
-ecr_name = "isengardecr"
-dynamodb_table_name = "pets-table"
-env = "poc"
+ecr_name = "isengardecr-xerris"
+dynamodb_table_name = "project-backend-xerris-nithin2"
+env = "dev"
 images_to_keep= 15
+owner_tag = "nithin-101"
+project = "xerris-dev-101"
+bucket_name = "test-backend-xerris-nithin2"
+sqs_name = "test-backend-sqs-nithin2"
