@@ -11,7 +11,7 @@ echo "${AWS_REGION}"
 terraform init \
 -backend-config="bucket=${ENV}-ginu-s3-newbucket" \
 -backend-config="key=alias/terraform.tfstate" \
--backend-config="dynamodb_table=${ENV}-ginu-table-state-lock" \
+-backend-config="dynamodb_table=ginu-table-state-lock" \
 -backend-config="region=${AWS_REGION}"
 #\ -backend-config="role_arn=arn:aws:iam::${ACCOUNT_ID}:role/deployment-role" \
 #-backend-config="session_name=${ENV}-session"
