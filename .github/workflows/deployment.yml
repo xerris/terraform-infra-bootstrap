@@ -30,12 +30,12 @@ jobs:
     - name: Run Terraform Plan
       run: |
         pwd
-        export ENV=poc-xerris
+        export ENV=dev 
         export AWS_REGION=us-east-1
         bash terraform_exec.sh 0
 
     - name: Run Terraform Apply
       run: |
-        export ENV=poc-xerris
+        export ENV=dev
         export AWS_REGION=us-east-1
         bash terraform_exec.sh 1
