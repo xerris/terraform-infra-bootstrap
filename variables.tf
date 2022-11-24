@@ -7,10 +7,10 @@ variable "ecr_name" {
   default = "ginu-ecr"
 }
 
-variable "tags" {
+/*variable "tags" {
   default= "ginu"
   #type   = map(string)
-}
+}*/
 
 variable "dynamodb_table_name"{
   default = "dev-ginu-ginu-table1"
