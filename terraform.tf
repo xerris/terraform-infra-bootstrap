@@ -3,7 +3,7 @@ terraform {
     bucket = "dev-ginu-s3-newbucket"
     key = "alias/terraform.tfstate"
     region = "us-east-1"
-    dynamodb_table = "dev-ginu-ginu-table1"
+    dynamodb_table = "ginu-table-state-lock"
   }
 }
 
