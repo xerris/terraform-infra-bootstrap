@@ -8,7 +8,7 @@ module "dynamodb_table" {
   attributes = [
     {
       name = "id"
-      type = "N"
+      type = "S"
     },
     {
       name = "title"
@@ -32,6 +32,6 @@ module "dynamodb_table" {
 
   tags = {
     Terraform   = "true"
-    Environment = "isengard"
+    Environment = "dynamo"
   }
 }
