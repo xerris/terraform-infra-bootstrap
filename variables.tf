@@ -8,7 +8,7 @@ variable "ecr_name" {
 }
 
 variable "dynamodb_table_name" {
-  default = "terraform-state-lock-allen"
+  default = "xyz"
 }
 
 variable "env" {
