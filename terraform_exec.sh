@@ -6,7 +6,7 @@ echo "###############################"
 
 #If var true apply  will be exec
 APPLY=$1
-ENV=$2
+#ENV=$2
 AWS_REGION="us-east-1"
 echo "${ENV}"
 echo "${AWS_REGION}"
