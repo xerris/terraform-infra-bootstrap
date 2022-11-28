@@ -1,7 +1,7 @@
 module "dynamodb_table" {
   source = "git@github.com:xerris/aws-modules.git//dynamodb"
 
-  name      = "${var.env}-${var.dynamodb_table_name}"
+  name      = "${var.env}-${var.dynamodb_table_name}-allen"
   hash_key  = "id"
   range_key = "title"
 
@@ -30,8 +30,8 @@ module "dynamodb_table" {
     }
   ]
 
-  tags = {
+  tags = merge({
     Terraform   = "true"
     Environment = "isengard"
-  }
+  }, var.tags)
 }

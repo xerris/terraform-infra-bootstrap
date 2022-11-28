@@ -1,5 +1,5 @@
 region              = "us-east-1"
-env                 = "dev"
+env                 = "dev-allen"
 ecr_name            = "isengard-xerris-ecr"
 dynamodb_table_name = "Allen-state-lock-table"
 images_to_keep      = 15

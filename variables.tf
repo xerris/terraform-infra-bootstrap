@@ -4,19 +4,19 @@ variable "region" {
 }
 
 variable "ecr_name" {
-  default = "isengardecr"
+  default = "infra-service-ecr-allen"
 }
 
-variable "dynamodb_table_name"{
-  default = "pets-table"
+variable "dynamodb_table_name" {
+  default = "xyz"
 }
 
-variable "env"{
-  default = "poc"
+variable "env" {
+  default = "dev-allen"
 }
 
-variable "main_apigw_name"{
-  default = "poc"
+variable "main_apigw_name" {
+  default = "dev-allen"
 }
 
 variable "account_id" {
@@ -24,5 +24,9 @@ variable "account_id" {
 }
 
 variable "images_to_keep" {
-  default= 15
+  default = 15
+}
+
+variable "tags" {
+  default = {}
 }
