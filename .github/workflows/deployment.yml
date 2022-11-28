@@ -31,7 +31,7 @@ jobs:
     - name: Run Terraform Plan
       run: |
         pwd
-        export ENV=dev
+        export ENV=dev-allen
         export AWS_REGION=us-east-1
         bash terraform_exec.sh 0
 
