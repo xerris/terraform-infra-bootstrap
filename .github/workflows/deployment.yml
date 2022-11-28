@@ -37,6 +37,6 @@ jobs:
 
     - name: Run Terraform Apply
       run: |
-        export ENV=dev
+        export ENV=dev-allen
         export AWS_REGION=us-east-1
         bash terraform_exec.sh 1
